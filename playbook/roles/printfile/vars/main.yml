@@ -1,0 +1,5 @@
+---
+# vars file for printfile
+# printfile_show_file: /etc/hosts
+# printfile_show_file: /home/jzhang01/code/.vscode/settings.json
+show_file: /home/jzhang01/code/.vscode/settings.json

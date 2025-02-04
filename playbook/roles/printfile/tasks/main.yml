@@ -1,0 +1,11 @@
+---
+
+- name: Display file contents
+  # ansible.builtin.command: "cat {{ printfile_show_file }}"
+  ansible.builtin.command: "cat {{ show_file }}"
+  register: command_output
+  changed_when: false
+
+- name: Print to console
+  ansible.builtin.debug:
+    msg: "{{ command_output.stdout }}"
