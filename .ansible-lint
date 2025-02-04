@@ -7,3 +7,5 @@
 exclude_paths:
   - .github/  # github workflow files
   - .ansible-lint
+
+offline: false
