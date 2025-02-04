@@ -5,5 +5,5 @@
 # and not relative to the CWD of execution. CLI arguments passed to the --exclude
 # option are parsed relative to the CWD of execution. 
 exclude_paths:
-  - ../.github/  # github workflow files
+  - .github/  # github workflow files
   - .ansible-lint
