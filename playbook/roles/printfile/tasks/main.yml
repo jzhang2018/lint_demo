@@ -5,6 +5,6 @@
   register: command_output
   changed_when: false
 
-- name: Print to console
+- name: Print file contents
   ansible.builtin.debug:
     msg: "{{ command_output.stdout }}"
