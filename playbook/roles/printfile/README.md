@@ -1,38 +1,9 @@
-Role Name
-=========
+This ansible role and playbook it to demonstrate the use of the ansible-lint.
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+- To run playbook: ansible-playbook playbook/printfile.yml
+- Ansible-lint configuration is in .ansible-lint file. For now, it just lists the path of exclusions
+- It integrates with GitHub actions. When the action is triggered, it will run the lint
+- To run lint locally: ansible-lint playbook/printfile.yml
+- The GitHub action is in .github/workflows/ansible-lint_push_pull.yml
+  - The action is triggered on push and pull request
+  - The email will be sent to the repository owner
