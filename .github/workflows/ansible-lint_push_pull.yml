@@ -1,11 +1,27 @@
 
-name: GitHub automations ansible-lint for best practice
+name: ansible-lint flow including email notification whether it succeeds or fails
 on: [push, pull_request]   # the list of conditions on which our automation triggers
 jobs:
   AnsibleLint:
-    runs-on: ubuntu-latest     # name of a container (environment) to run your automations in
+    runs-on: ubuntu-latest
     steps:
       - name: check code out from github into "ubuntu-latest"
         uses: actions/checkout@v4
       - name: run ansible lint
         uses: ansible/ansible-lint@main
+  SendEmail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: send email
+        uses: dawidd6/action-send-mail@v4 # release v4 on Nov 20, 2024
+        with:
+          server_address: smtp.gmail.com  # TODO: outlook
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Ansible lint job has finished"
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }} 
+          body: |
+            The ansible-lint job has finished. To see the results, please click the following link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          ignore_cert: true
