@@ -6,9 +6,4 @@
   tasks:
     - name: Print Hosts
       ansible.builtin.include_role:
-        name: printfile     
-
-
-        
-           
-
+        name: printfile
